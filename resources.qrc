@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/board.jpg</file>
+        <file>img/plane.png</file>
+        <file>img/plane-short.png</file>
+        <file>img/plane-short2.png</file>
+        <file>img/selected-plane.png</file>
+    </qresource>
+</RCC>

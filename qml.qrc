@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Plane.qml</file>
+        <file>js/game.js</file>
+    </qresource>
+</RCC>

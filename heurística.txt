@@ -1,0 +1,72 @@
+int funcion_evaluacion(const char tablero[8][8], char pieza){
+    int result=0;
+
+
+    int valores_j[8];
+    for(int j=0;j<8;j++)
+    {
+        if(j==1 || j==6){
+            valores_j[j]=1;
+        }
+        else
+            valores_j[j]=2;
+    }
+
+    int valores_i[8];
+    for(int i=0;i<8;i++)
+    {
+        if(i==0 || i==7)
+            valores_i[i]=2;
+        else if(i==6 || i==1)
+            valores_i[i]=3;
+        else if(i==5 || i==2)
+            valores_i[i]==4;
+        else
+            valores_i[i]=1;
+    }
+    //Crear la matriz de ptos con los valores
+    //asignados en las filas y las columnas
+
+    int pts[8][8];
+
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        {
+            pts[i][j]=valores_i[i]+valores_j[j];
+        }
+    }
+    //Buscar adyacentes
+    int dx[] = {-1, 0, 0, 1};
+    int dy[] = {0, -1, 1, 0};
+
+    for(int i=0; i<8; i++)
+        for(int j=0; j<8; j++) {
+            if( tablero[i][j] == pieza ) {
+
+                for(int k=0; k<8; k++) {
+                    try {
+                        pts[ i+dx[k] ][ j+dy[k] ] -= 3;
+                    } catch(...) {}
+                }
+            }
+            else if( tablero[i][j] != pieza ) {
+                for(int k=0; k<8; k++) {
+                    try {
+                        pts[ i+dx[k] ][ j+dy[k] ] += 2;
+                    } catch(...) {}
+                }
+            }
+        }
+
+
+    for(int i=0; i<8; i++)
+        for(int j=0; j<8; j++) {
+            if( tablero[i][j] == pieza ) {
+                result+=pts[i][j];
+            }
+
+        }
+
+    return result;
+}
