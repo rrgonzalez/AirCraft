@@ -1,3 +1,5 @@
+Te jodi!!
+
 int funcion_evaluacion(const char tablero[8][8], char pieza){
     int result=0;
 
